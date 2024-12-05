@@ -9,7 +9,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
     while cap.isOpened():
         ret, frame = cap.read()
         if not ret:
-            print("Tidak dapat mengakses kamera.")
+            print("Cant open camera.")
             break
 
         frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -24,7 +24,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
             mp_drawing.DrawingSpec(color=(0, 0, 255), thickness=2, circle_radius=2)
         )
 
-        cv2.imshow('Pose Estimation', frame)
+        cv2.imshow('Pose Estimation MediaPipe', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
